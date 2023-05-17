@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  font-size: 30px;
+  color: #ff5555;
+  /* color: #ff79c6; */
+}
+
+.logo-img {
+  margin-right: 10px;
+  margin-top: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+.icon-img {
+  width: 1em; /* Ajuste o tamanho conforme necessário */
+  height: 1em; /* Ajuste a altura conforme necessário */
+  /* margin-left: 5px; */ /* Ajuste a margem conforme necessário */
+  transform: translateY(10px);
+}
