@@ -1,8 +1,10 @@
 import Input from "../Input";
 import styled from "styled-components";
 import { useState } from "react";
-import { livros } from "./dadosPesquisa";
 import UltimosLancamentos from "../UltimosLancamentos";
+import { useEffect } from "react";
+import { getLivros } from "../../servicos/livros";
+import { postFavorito } from "../../servicos/favoritos";
 
 const PesquisaContainer = styled.section`
   background-color: #383a59;
@@ -230,8 +232,25 @@ const Resultado = styled.div`
 
 function Pesquisa() {
   const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+  const [Livros, setLivros] = useState([]);
 
-  console.log(livrosPesquisados);
+  useEffect(() => {
+    fetchLivros();
+  }, []);
+
+  async function fetchLivros() {
+    const livrosDaAPI = await getLivros();
+    setLivros(livrosDaAPI);
+  }
+
+  async function insertFavorito(id) {
+    try {
+      await postFavorito(id);
+      alert(`Livro de id:${id} inserido!`);
+    } catch (error) {
+      console.error("Erro ao adicionar favorito:", error);
+    }
+  }
 
   return (
     <PesquisaContainer>
@@ -247,16 +266,17 @@ function Pesquisa() {
         placeholder="Escreva sua próxima leitura"
         onBlur={(evento) => {
           const textoDigitado = evento.target.value;
-          const resultadoPesquisa = livros.filter((livro) =>
+          const resultadoPesquisa = Livros.filter((livro) =>
             livro.nome.includes(textoDigitado)
           );
           setLivrosPesquisados(resultadoPesquisa);
         }}
       />
       {livrosPesquisados.map((livro) => (
-        <Resultado>
+        <Resultado onClick={() => insertFavorito(livro.id)}>
           <p>{livro.nome}</p>
-          <img src={livro.src} alt="." />
+          <img src={livro.src} alt={livro.nome} />
+          <h5>{livro.autor}</h5>
         </Resultado>
       ))}
       <UltimosLancamentos />

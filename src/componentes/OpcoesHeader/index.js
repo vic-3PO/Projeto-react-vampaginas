@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const textoOpcoes = ["CATEGORIAS", "MIINHA ESTANTE", "FAVORITOS"];
 
@@ -18,13 +19,19 @@ const OpcoesLista = styled.li`
   min-width: 120px;
 `;
 
+const OpcoesLink = styled(Link)`
+  text-decoration: none; /* Remover linha abaixo do link */
+`;
+
 function OpcoesHeader() {
   return (
     <OpcoesTexto>
       {textoOpcoes.map((texto) => (
-        <OpcoesLista>
-          <p>{texto}</p>
-        </OpcoesLista>
+        <OpcoesLink to={`/${texto.toLowerCase()}`}>
+          <OpcoesLista>
+            <p>{texto}</p>
+          </OpcoesLista>
+        </OpcoesLink>
       ))}
     </OpcoesTexto>
   );

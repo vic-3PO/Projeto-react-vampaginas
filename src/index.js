@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import Home from "./rotas/Home";
 import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./componentes/Header";
+import Favoritos from "./rotas/Favoritos";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,13 +26,20 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     color: #f8f8f2;
   }
+  
 `;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GlobalStyle />
-    <App />
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/favoritos" element={<Favoritos />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
