@@ -7,7 +7,6 @@ import { deleteFavorito } from "../servicos/favoritos";
 
 const AppContainer = styled.div`
   width: 100vw;
-  height: 100vh;
   background-color: #383a59;
   display: flex;
   flex-direction: column;

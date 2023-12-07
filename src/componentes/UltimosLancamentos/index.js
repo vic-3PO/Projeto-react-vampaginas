@@ -1,42 +1,38 @@
-import styled from "styled-components";
-import { livros } from "./dadosUltimosLancamentos";
+import React, { useState, useEffect } from "react";
+import { obterUltimosLancamentos } from "./dadosUltimosLancamentos";
 import { Titulo } from "../Titulo";
 import CardRecomendacao from "../CardRecomendacao";
 import imagemLivro from "../../imagens/livro3.png";
-
-const UltimosLancamentosContainer = styled.section`
-  color: #f8f8f2;
-  background-color: #383a59;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-`;
-
-const NovosLivrosContainer = styled.div`
-  margin-top: 30px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  cursor: pointer;
-
-  img {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    margin-left: 20px;
-  }
-`;
+import {
+  NovosLivrosContainer,
+  UltimosLancamentosContainer,
+  LivroContainer,
+} from "./estilo";
 
 function UltimosLancamentos() {
+  const [livros, setLivros] = useState([]);
+
+  useEffect(() => {
+    async function fetchLivros() {
+      const livrosData = await obterUltimosLancamentos();
+      setLivros(livrosData);
+    }
+
+    fetchLivros();
+  }, []);
+
   return (
     <UltimosLancamentosContainer>
       <Titulo tamanhoFonte={"36px"}>Últimos Lançamentos</Titulo>
       <NovosLivrosContainer>
-        {livros.map((livro) => (
+        {/* {livros.map((livro) => (
           <img src={livro.src} alt={livro.nome} />
+        ))} */}
+        {livros.map((livro) => (
+          <LivroContainer key={livro.key}>
+            <img src={livro.src} alt={livro.nome} />
+            <p>{livro.nome}</p>
+          </LivroContainer>
         ))}
       </NovosLivrosContainer>
       <CardRecomendacao

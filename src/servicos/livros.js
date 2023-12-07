@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 const livrosAPI = axios.create({ baseURL: "http://localhost:8000/livros" });
 
@@ -9,3 +9,4 @@ async function getLivros() {
 }
 
 export { getLivros };
+ */

@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 const favoritosAPI = axios.create({
   baseURL: "http://localhost:8000/favoritos",
@@ -19,3 +19,4 @@ async function deleteFavorito(id) {
 }
 
 export { getFavoritos, postFavorito, deleteFavorito };
+ */
