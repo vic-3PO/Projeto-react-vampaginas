@@ -1,0 +1,17 @@
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  position: fixed;
+}
+
+.ReactModal__Content {
+  border: none !important;
+  background: none !important;
+  overflow-y: auto !important; /* Enable vertical scrolling */
+  max-height: 90vh; /* Adjust the maximum height as needed */
+  padding: 0 !important;
+  position: relative;
+}

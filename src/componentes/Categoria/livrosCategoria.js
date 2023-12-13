@@ -58,20 +58,60 @@ const AutorLivro = styled.p`
   margin: 0;
 `;
 
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const PageButton = styled.button`
+  background-color: var(--color-background);
+  color: #fff;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-comment);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
+
+const Ellipsis = styled.span`
+  margin: 0 5px;
+`;
+
 function LivrosCategoria({ categoria }) {
   const [livros, setLivros] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
+  const [itemsPerPage] = useState(40);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const buscarLivros = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${categoria}&key=${apiKey}&filter=free-ebooks&maxResults=40`
+          `https://www.googleapis.com/books/v1/volumes?q=${categoria}&key=${apiKey}&filter=free-ebooks&maxResults=${itemsPerPage}&startIndex=${
+            (currentPage - 1) * itemsPerPage
+          }`
         );
 
         if (response.ok) {
           const data = await response.json();
-          console.log("Dados brutos da API:", data);
+          const newTotalItems = data.totalItems || 0;
+
+          if (newTotalItems !== totalItems) {
+            setTotalItems(newTotalItems);
+          }
+
           const livrosEncontrados = data.items.map((livro) => ({
             id: livro.id,
             titulo: livro.volumeInfo.title,
@@ -83,7 +123,6 @@ function LivrosCategoria({ categoria }) {
               "https://via.placeholder.com/100x150",
           }));
 
-          console.log("Livros encontrados:", livrosEncontrados);
           setLivros(livrosEncontrados);
         } else {
           console.error("Erro ao buscar livros:", response.statusText);
@@ -93,28 +132,104 @@ function LivrosCategoria({ categoria }) {
       }
     };
 
-    console.log("Categoria selecionada:", categoria);
     buscarLivros();
-  }, [apiKey, categoria]);
+  }, [apiKey, categoria, itemsPerPage, currentPage, totalItems]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPageButtons = () => {
+    const pageButtons = [];
+    const maxVisibleButtons = 5; // Adjust the number of visible buttons
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    if (totalPages <= maxVisibleButtons) {
+      // If total pages are less than or equal to the max visible buttons, display all buttons
+      for (let page = 1; page <= totalPages; page++) {
+        pageButtons.push(
+          <PageButton
+            key={page}
+            onClick={() => handlePageChange(page)}
+            disabled={page === currentPage}
+          >
+            {page}
+          </PageButton>
+        );
+      }
+    } else {
+      // If total pages are more than the max visible buttons, display ellipsis and adjust visible buttons
+      const firstVisible = Math.max(
+        1,
+        currentPage - Math.floor(maxVisibleButtons / 2)
+      );
+      const lastVisible = Math.min(
+        totalPages,
+        firstVisible + maxVisibleButtons - 1
+      );
+
+      if (firstVisible > 1) {
+        pageButtons.push(
+          <PageButton key={1} onClick={() => handlePageChange(1)}>
+            1
+          </PageButton>
+        );
+        if (firstVisible > 2) {
+          pageButtons.push(<Ellipsis key="start-ellipsis">...</Ellipsis>);
+        }
+      }
+
+      for (let page = firstVisible; page <= lastVisible; page++) {
+        pageButtons.push(
+          <PageButton
+            key={page}
+            onClick={() => handlePageChange(page)}
+            disabled={page === currentPage}
+          >
+            {page}
+          </PageButton>
+        );
+      }
+
+      if (lastVisible < totalPages) {
+        if (lastVisible < totalPages - 1) {
+          pageButtons.push(<Ellipsis key="end-ellipsis">...</Ellipsis>);
+        }
+        pageButtons.push(
+          <PageButton
+            key={totalPages}
+            onClick={() => handlePageChange(totalPages)}
+          >
+            {totalPages}
+          </PageButton>
+        );
+      }
+    }
+
+    return pageButtons;
+  };
 
   return (
     <LivrosCategoriaContainer>
       {livros.length > 0 && (
-        <LivrosTable>
-          <tbody>
-            {livros.map((livro) => (
-              <LivroItem key={livro.id}>
-                <LivroCapa>
-                  <img src={livro.capa} alt={livro.titulo} />
-                </LivroCapa>
-                <LivroInfo>
-                  <TituloLivro>{livro.titulo}</TituloLivro>
-                  <AutorLivro>Autor: {livro.autor}</AutorLivro>
-                </LivroInfo>
-              </LivroItem>
-            ))}
-          </tbody>
-        </LivrosTable>
+        <>
+          <LivrosTable>
+            <tbody>
+              {livros.map((livro) => (
+                <LivroItem key={livro.id}>
+                  <LivroCapa>
+                    <img src={livro.capa} alt={livro.titulo} />
+                  </LivroCapa>
+                  <LivroInfo>
+                    <TituloLivro>{livro.titulo}</TituloLivro>
+                    <AutorLivro>Autor: {livro.autor}</AutorLivro>
+                  </LivroInfo>
+                </LivroItem>
+              ))}
+            </tbody>
+          </LivrosTable>
+          <PaginationContainer>{renderPageButtons()}</PaginationContainer>
+        </>
       )}
     </LivrosCategoriaContainer>
   );
