@@ -1,12 +1,15 @@
 import perfil from "../../imagens/perfil.svg";
-import sacola from "../../imagens/sacola.svg";
 import styled from "styled-components";
 
-const icones = [perfil, sacola];
+const icones = [perfil];
 
 const Icone = styled.li`
-  margin-right: 40px;
+  margin-right: 10px;
   width: 25px;
+
+  @media (min-width: 768px) {
+    margin-right: 40px;
+  }
 `;
 
 const IconeImg = styled.img`

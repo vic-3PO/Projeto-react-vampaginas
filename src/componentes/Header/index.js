@@ -7,7 +7,15 @@ import { Link } from "react-router-dom";
 const HeaderContainer = styled.header`
   background-color: #282a36;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const OpcoesLink = styled(Link)`

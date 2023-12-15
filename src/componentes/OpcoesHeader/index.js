@@ -5,6 +5,13 @@ const textoOpcoes = ["CATEGORIAS", "MINHA ESTANTE", "FAVORITOS"];
 
 const OpcoesTexto = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+  }
 `;
 
 const OpcoesLista = styled.li`

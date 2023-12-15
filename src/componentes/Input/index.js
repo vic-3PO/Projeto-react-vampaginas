@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  order: 1px solid #fff;
-  background: transparent;
   border: 1px solid #fff;
-  padding: 20px 140px;
+  background: transparent;
+  padding: 20px 20px;
   border-radius: 50px;
-  width: 200px;
+  width: 800px;
   color: #fff;
   font-size: 16px;
   margin-bottom: 10px;
@@ -15,6 +14,11 @@ const Input = styled.input`
   &::placeholder {
     color: #fff;
     font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 140px;
+    width: 200px;
   }
 `;
 
