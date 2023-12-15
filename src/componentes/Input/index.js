@@ -5,7 +5,7 @@ const Input = styled.input`
   background: transparent;
   padding: 20px 20px;
   border-radius: 50px;
-  width: 500px;
+  width: 70%; /* Adjust width based on your design */
   color: #fff;
   font-size: 16px;
   margin-bottom: 10px;
@@ -16,9 +16,8 @@ const Input = styled.input`
     font-size: 16px;
   }
 
-  @media (max-width: 768px) {
-    padding: 20px 140px;
-    width: 200px;
+  @media (min-width: 768px) {
+    width: 500px; /* Keep the original width for larger screens */
   }
 `;
 
