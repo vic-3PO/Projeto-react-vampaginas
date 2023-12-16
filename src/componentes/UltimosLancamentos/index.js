@@ -25,9 +25,6 @@ function UltimosLancamentos() {
     <UltimosLancamentosContainer>
       <Titulo tamanhoFonte={"36px"}>Últimos Lançamentos</Titulo>
       <NovosLivrosContainer>
-        {/* {livros.map((livro) => (
-          <img src={livro.src} alt={livro.nome} />
-        ))} */}
         {livros.map((livro) => (
           <LivroContainer key={livro.key}>
             <img src={livro.src} alt={livro.nome} />

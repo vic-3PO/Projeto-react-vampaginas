@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Vampáginas - Descubra Obras de Domínio Público 📚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O **Vampáginas** é um site dedicado à literatura, desenvolvido com a poderosa biblioteca React e integrado à API do Google Books. Este projeto visa oferecer aos usuários uma experiência intuitiva e amigável para explorar obras de domínio público, proporcionando informações detalhadas, como sinopses, capas e detalhes dos autores.
 
-## Available Scripts
+## Principais Recursos
 
-In the project directory, you can run:
+- **Busca Eficiente:** Encontre facilmente livros específicos através de uma busca eficiente e recursos de filtragem.
 
-### `npm start`
+- **Exploração Visual:** A apresentação visual cativante torna a navegação uma experiência agradável.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Comunidade Conectada:** O Vampáginas aspira a criar uma comunidade vibrante, onde os amantes de livros podem compartilhar recomendações, resenhas e participar de discussões.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Como Testar
 
-### `npm test`
+O Vampáginas ainda está em desenvolvimento, mas você já pode testar algumas funcionalidades. Acesse [vampaginas.vercel.app](https://vampaginas.vercel.app/) e comece a explorar o mundo fascinante da literatura de domínio público.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+**Desenvolvido com:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+- [![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
+- [![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)
+- [![Axios](https://img.shields.io/badge/Axios-56A7A5?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/)
+- [![Create React App](https://img.shields.io/badge/Create_React_App-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://create-react-app.dev/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Autor:** Victor Lopes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se você encontrar problemas ou tiver sugestões, sinta-se à vontade para contribuir para o projeto! 📖✨

@@ -5,7 +5,6 @@ export function Categorias() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    // Lista de categorias específicas que você quer incluir
     const categoriasEspecificas = [
       "Ficção",
       "Romance",
@@ -99,5 +98,5 @@ export function Categorias() {
     setCategorias(categoriasEspecificas);
   }, []);
 
-  return categorias; // Retorne as categorias obtidas
+  return categorias;
 }

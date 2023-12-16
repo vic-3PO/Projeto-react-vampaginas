@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getFavoritos } from "../servicos/favoritos";
 import { Titulo } from "../componentes/Titulo";
 import { deleteFavorito } from "../servicos/favoritos";
+import TrabalhandoNisso from "../componentes/TrabalhandoNisso";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -48,33 +49,11 @@ const LivroNome = styled.span`
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 function Favoritos() {
-  const [favoritos, setFavoritos] = useState([]);
-
-  async function fetchFavoritos() {
-    const favoritosDaAPI = await getFavoritos();
-    setFavoritos(favoritosDaAPI);
-  }
-
-  useEffect(() => {
-    fetchFavoritos();
-  }, []);
-
-  async function deletarFavorito(id) {
-    await deleteFavorito(id);
-    alert(`Livro de id:${id} deletado!`);
-  }
-
   return (
     <AppContainer>
       <Titulo>Meus Favoritos</Titulo>
-      <ListaLivros>
-        {favoritos.map((favorito) => (
-          <LivroItem onClick={() => deletarFavorito(favorito.id)}>
-            <LivroImagem src={favorito.src} alt={favorito.nome} />
-            <LivroNome>{favorito.nome}</LivroNome>
-          </LivroItem>
-        ))}
-      </ListaLivros>
+      <TrabalhandoNisso></TrabalhandoNisso>
+      <ListaLivros></ListaLivros>
     </AppContainer>
   );
 }

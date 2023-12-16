@@ -1,14 +1,25 @@
-import perfil from "../../imagens/perfil.svg";
+import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import perfil from "../../imagens/perfil.svg";
 
 const icones = [perfil];
 
 const Icone = styled.li`
   margin-right: 10px;
   width: 25px;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     margin-right: 40px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.8;
   }
 `;
 
@@ -25,9 +36,11 @@ const Icones = styled.ul`
 function IconesHeader() {
   return (
     <Icones>
-      {icones.map((icone) => (
-        <Icone>
-          <IconeImg src={icone} alt="."></IconeImg>
+      {icones.map((icone, index) => (
+        <Icone key={index}>
+          <Link to="/perfil">
+            <IconeImg src={icone} alt="."></IconeImg>
+          </Link>
         </Icone>
       ))}
     </Icones>

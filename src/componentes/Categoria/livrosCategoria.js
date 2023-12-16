@@ -141,11 +141,10 @@ function LivrosCategoria({ categoria }) {
 
   const renderPageButtons = () => {
     const pageButtons = [];
-    const maxVisibleButtons = 5; // Adjust the number of visible buttons
+    const maxVisibleButtons = 5;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     if (totalPages <= maxVisibleButtons) {
-      // If total pages are less than or equal to the max visible buttons, display all buttons
       for (let page = 1; page <= totalPages; page++) {
         pageButtons.push(
           <PageButton
@@ -158,7 +157,6 @@ function LivrosCategoria({ categoria }) {
         );
       }
     } else {
-      // If total pages are more than the max visible buttons, display ellipsis and adjust visible buttons
       const firstVisible = Math.max(
         1,
         currentPage - Math.floor(maxVisibleButtons / 2)

@@ -19,7 +19,7 @@ const HeaderContainer = styled.header`
 `;
 
 const OpcoesLink = styled(Link)`
-  text-decoration: none; /* Remover linha abaixo do link */
+  text-decoration: none;
 `;
 
 function Header() {

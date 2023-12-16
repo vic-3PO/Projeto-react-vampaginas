@@ -13,8 +13,7 @@
 }
 
 .icon-img {
-  width: 1em; /* Ajuste o tamanho conforme necessário */
-  height: 1em; /* Ajuste a altura conforme necessário */
-  /* margin-left: 5px; */ /* Ajuste a margem conforme necessário */
+  width: 1em;
+  height: 1em;
   transform: translateY(10px);
 }

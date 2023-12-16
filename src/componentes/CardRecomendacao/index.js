@@ -7,7 +7,7 @@ const Card = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: flex;
-  flex-direction: column; /* Adjust for smaller screens */
+  flex-direction: column;
   margin: 0 auto;
   max-width: 600px;
   padding: 25px 20px;
@@ -16,7 +16,7 @@ const Card = styled.div`
   margin-top: 10px;
 
   @media (min-width: 768px) {
-    flex-direction: row; /* Change back to row layout on larger screens */
+    flex-direction: row;
   }
 `;
 
@@ -30,7 +30,7 @@ const Botao = styled.button`
   display: block;
   text-align: center;
   width: 150px;
-  margin-top: 15px; /* Add margin for spacing on smaller screens */
+  margin-top: 15px;
   &:hover {
     cursor: pointer;
   }
@@ -38,8 +38,8 @@ const Botao = styled.button`
 
 const Descricao = styled.p`
   max-width: 300px;
-  text-align: center; /* Center text on smaller screens */
-  margin-top: 10px; /* Add margin for spacing on smaller screens */
+  text-align: center;
+  margin-top: 10px;
 `;
 
 const Subtitulo = styled.h4`
@@ -47,12 +47,12 @@ const Subtitulo = styled.h4`
   font-size: 18px;
   font-weight: bold;
   margin: 15px 0;
-  text-align: center; /* Center text on smaller screens */
+  text-align: center;
 `;
 
 const ImgLivro = styled.img`
   width: 150px;
-  margin-top: 10px; /* Add margin for spacing on smaller screens */
+  margin-top: 10px;
 `;
 
 function CardRecomendacao({ titulo, subtitulo, descricao, img }) {

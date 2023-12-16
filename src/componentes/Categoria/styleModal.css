@@ -10,8 +10,8 @@
 .ReactModal__Content {
   border: none !important;
   background: none !important;
-  overflow-y: auto !important; /* Enable vertical scrolling */
-  max-height: 90vh; /* Adjust the maximum height as needed */
+  overflow-y: auto !important;
+  max-height: 90vh;
   padding: 0 !important;
   position: relative;
 }
