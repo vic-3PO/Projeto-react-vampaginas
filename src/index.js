@@ -10,6 +10,7 @@ import Favoritos from "./rotas/Favoritos";
 import Categorias from "./rotas/Categorias";
 import Estante from "./rotas/Estante";
 import Perfil from "./rotas/Perfil";
+import Sobre from "./rotas/Sobre";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -40,7 +41,7 @@ root.render(
       <Header />
       <Routes>
         <Route path="/perfil" element={<Perfil />} />
-
+        <Route path="/sobre" element={<Sobre />} />
         <Route path="/minha estante" element={<Estante />} />
         <Route path="/categorias" element={<Categorias />} />
         <Route path="/favoritos" element={<Favoritos />} />

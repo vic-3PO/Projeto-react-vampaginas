@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const textoOpcoes = ["CATEGORIAS", "MINHA ESTANTE", "FAVORITOS"];
+const textoOpcoes = ["CATEGORIAS", "MINHA ESTANTE", "FAVORITOS", "SOBRE"];
 
 const OpcoesTexto = styled.ul`
   display: flex;
@@ -21,9 +21,9 @@ const OpcoesLista = styled.li`
   align-items: center;
   text-align: center;
   height: 100%;
-  padding: 0 5px;
+  padding: 0 15px;
   cursor: pointer;
-  min-width: 120px;
+  min-width: 54px;
 `;
 
 const OpcoesLink = styled(Link)`

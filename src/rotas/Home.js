@@ -8,11 +8,6 @@ const AppContainer = styled.div`
   position: relative;
 `;
 
-/* const StyledUltimosLancamentos = styled(UltimosLancamentos)`
-  position: block;
-  z-index: 1;
-`; */
-
 function Home() {
   return (
     <AppContainer>

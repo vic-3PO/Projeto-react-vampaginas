@@ -1,23 +1,21 @@
 import React from "react";
-import TrabalhandoNisso from "../componentes/TrabalhandoNisso";
 import styled from "styled-components";
 import { Titulo } from "../componentes/Titulo";
+import LoginPage from "../componentes/login";
 
 const AppContainer = styled.div`
-  width: 100vw;
+  height: 100vh;
   background-color: #383a59;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
 `;
 
-function Estante() {
+function Perfil() {
   return (
     <AppContainer>
       <Titulo>Perfil</Titulo>
-      <TrabalhandoNisso></TrabalhandoNisso>
+      <LoginPage></LoginPage>
     </AppContainer>
   );
 }
 
-export default Estante;
+export default Perfil;
