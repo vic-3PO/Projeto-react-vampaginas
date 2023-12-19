@@ -27,6 +27,7 @@ export function Categorias() {
       "Psicologia",
 
       "Poesia",
+      "Partitura",
       "Poesia Contemporânea",
       "Poesia Clássica",
       "Poesia Épica",

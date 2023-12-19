@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Titulo } from "../componentes/Titulo";
 import LoginPage from "../componentes/login";
 
 const AppContainer = styled.div`
@@ -12,7 +11,6 @@ const AppContainer = styled.div`
 function Perfil() {
   return (
     <AppContainer>
-      <Titulo>Perfil</Titulo>
       <LoginPage></LoginPage>
     </AppContainer>
   );

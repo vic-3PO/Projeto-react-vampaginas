@@ -1,9 +1,10 @@
 import "./App.css";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react";
 import { getFavoritos } from "../servicos/favoritos";
+import { deleteFavorito } from "../servicos/favoritos"; */
 import { Titulo } from "../componentes/Titulo";
-import { deleteFavorito } from "../servicos/favoritos";
+
 import TrabalhandoNisso from "../componentes/TrabalhandoNisso";
 
 const AppContainer = styled.div`
@@ -23,7 +24,7 @@ const ListaLivros = styled.ul`
   justify-content: center;
 `;
 
-const LivroItem = styled.li`
+/* const LivroItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +48,7 @@ const LivroNome = styled.span`
   color: #f8f8f2;
   font-size: 14px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-`;
+`; */
 function Favoritos() {
   return (
     <AppContainer>
