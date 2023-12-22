@@ -1,6 +1,7 @@
 import "./App.css";
 import Pesquisa from "../componentes/Pesquisa";
 import styled from "styled-components";
+import Footer from "../componentes/Footer";
 
 const AppContainer = styled.div`
   height: 100vh;
@@ -12,6 +13,7 @@ function Home() {
   return (
     <AppContainer>
       <Pesquisa />
+      <Footer />
     </AppContainer>
   );
 }

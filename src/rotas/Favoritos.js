@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { getFavoritos } from "../servicos/favoritos";
 import { deleteFavorito } from "../servicos/favoritos"; */
 import { Titulo } from "../componentes/Titulo";
-
 import TrabalhandoNisso from "../componentes/TrabalhandoNisso";
+import Footer from "../componentes/Footer";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -55,6 +55,7 @@ function Favoritos() {
       <Titulo>Meus Favoritos</Titulo>
       <TrabalhandoNisso></TrabalhandoNisso>
       <ListaLivros></ListaLivros>
+      <Footer />
     </AppContainer>
   );
 }

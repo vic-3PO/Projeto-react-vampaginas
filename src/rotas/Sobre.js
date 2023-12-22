@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SobreNos from "../componentes/SobreNos";
+import Footer from "../componentes/Footer";
 
 const AppContainer = styled.div`
   height: 100vh;
@@ -12,6 +13,7 @@ function Sobre() {
   return (
     <AppContainer>
       <SobreNos />
+      <Footer />
     </AppContainer>
   );
 }
