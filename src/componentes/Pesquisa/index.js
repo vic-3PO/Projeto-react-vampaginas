@@ -9,6 +9,7 @@ import {
   Resultado,
   ResultadoContainer,
 } from "./estilo";
+import Footer from "../Footer";
 
 function InputPesquisa({ onPesquisaChange }) {
   return (
@@ -48,6 +49,7 @@ function Pesquisa() {
         ))}
       </ResultadoContainer>
       <UltimosLancamentos />
+      <Footer />
     </PesquisaContainer>
   );
 }

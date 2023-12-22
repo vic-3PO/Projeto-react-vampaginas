@@ -28,6 +28,10 @@ const FooterLinks = styled.div`
   }
 `;
 
+const Copyright = styled.p`
+  margin-top: 10px;
+`;
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -38,7 +42,9 @@ const Footer = () => {
         <p>Contatos: Trabalhando nisso</p>
 
         {/* Copyright */}
-        <p>© {currentYear} Vampáginas. Todos os direitos reservados.</p>
+        <Copyright>
+          © {currentYear} Vampáginas. Todos os direitos reservados.
+        </Copyright>
 
         {/* Links institucionais */}
         {/* <FooterLinks>
