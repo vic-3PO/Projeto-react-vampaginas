@@ -9,7 +9,7 @@ import Header from "./componentes/Header";
 import Favoritos from "./rotas/Favoritos";
 import Categorias from "./rotas/Categorias";
 import Estante from "./rotas/Estante";
-import Perfil from "./rotas/Perfil";
+import Login from "./rotas/Login";
 import Sobre from "./rotas/Sobre";
 
 const GlobalStyle = createGlobalStyle`
@@ -40,7 +40,7 @@ root.render(
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/minha estante" element={<Estante />} />
         <Route path="/categorias" element={<Categorias />} />

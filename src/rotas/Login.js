@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import LoginPage from "../componentes/login";
+import AuthPage from "../componentes/AuthPage";
 import Footer from "../componentes/Footer";
+
 
 const AppContainer = styled.div`
   height: 100vh;
@@ -9,13 +10,13 @@ const AppContainer = styled.div`
   position: relative;
 `;
 
-function Perfil() {
+function Login() {
   return (
     <AppContainer>
-      <LoginPage></LoginPage>
+      <AuthPage></AuthPage>
       <Footer />
     </AppContainer>
   );
 }
 
-export default Perfil;
+export default Login;

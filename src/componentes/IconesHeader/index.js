@@ -38,7 +38,7 @@ function IconesHeader() {
     <Icones>
       {icones.map((icone, index) => (
         <Icone key={index}>
-          <Link to="/perfil">
+          <Link to="/login">
             <IconeImg src={icone} alt="."></IconeImg>
           </Link>
         </Icone>
