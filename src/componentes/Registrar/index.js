@@ -1,8 +1,6 @@
-// authPage.js
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useAute } from "../AuthPage/autenticar";
-import { useNavigate  } from "react-router-dom";
 
 const AuthPageContainer = styled.div`
   display: flex;
@@ -103,28 +101,46 @@ const Register = styled.div`
   }
 `;
 
-function AuthPage() {
+export default function RegisterPage() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAute();
+  const passwordConfirmRef = useRef();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // Altere esta linha
+  const [isLoading, setLoading] = useState(false);
+
+  const { signup } = useAute();
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+  
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Senhas não são iguais");
+    }
+  
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      // Redireciona para a página de perfil após o login bem-sucedido
-      navigate("/perfil"); // Altere esta linha
+      console.log("Antes do signup");
+  
+      // Aqui adicionamos a verificação mais detalhada de erro
+      await signup(emailRef.current.value, passwordRef.current.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("Usuário criado com sucesso:", user);
+        })
+        .catch((error) => {
+          console.error("Erro ao criar uma conta:", error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(`Falha ao criar uma conta: ${errorCode} - ${errorMessage}`);
+        });
+  
+      console.log("Depois do signup");  
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      setError("Falha ao fazer login");
+      console.error("Erro ao criar uma conta:", error);
+      setError("Falha ao criar uma conta");
     }
-
+  
     setLoading(false);
   }
 
@@ -132,7 +148,7 @@ function AuthPage() {
     <AuthPageContainer>
       <AuthContainer>
         <AuthForm onSubmit={handleSubmit}>
-          <Title>Login</Title>
+          <Title>Registrar</Title>
           <InputBox>
             <input type="email" required ref={emailRef} />
             <label>Endereço de email</label>
@@ -141,20 +157,25 @@ function AuthPage() {
             <input type="password" required ref={passwordRef} />
             <label>Senha</label>
           </InputBox>
-          <Button disabled={loading} type="submit">
-            Login
+          <InputBox>
+            <input type="password" required ref={passwordConfirmRef} />
+            <label>Confirmar Senha</label>
+          </InputBox>
+          <Button disabled={isLoading} type="submit">
+            Registrar
           </Button>
           <Register>
             <p>
-              Não tem uma conta?{" "}
-              <a href="/registrar">Registrar</a>
+              Já tem uma conta?{" "}
+              <a href="/login">
+                Login
+              </a>
             </p>
             {error && <p className="error">{error}</p>}
+            {isLoading && <p>Carregando...</p>}
           </Register>
         </AuthForm>
       </AuthContainer>
     </AuthPageContainer>
   );
 }
-
-export default AuthPage;

@@ -14,14 +14,14 @@ const AppContainer = styled.div`
   align-items: center;
 `;
 
-function Estante() {
+function Perfil() {
   return (
     <AppContainer>
-      <Titulo>MInha Estante</Titulo>
+      <Titulo>Perfil</Titulo>
       <TrabalhandoNisso></TrabalhandoNisso>
       <Footer />
     </AppContainer>
   );
 }
 
-export default Estante;
+export default Perfil;

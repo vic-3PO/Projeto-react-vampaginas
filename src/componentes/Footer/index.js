@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 
 const FooterContainer = styled.footer`
   background-color: #282a36;
@@ -15,7 +15,7 @@ const FooterContent = styled.div`
   align-items: center;
 `;
 
-const FooterLinks = styled.div`
+/* const FooterLinks = styled.div`
   margin-top: 20px;
 
   a {
@@ -26,7 +26,7 @@ const FooterLinks = styled.div`
       color: #bd93f9;
     }
   }
-`;
+`; */
 
 const Copyright = styled.p`
   margin-top: 10px;
