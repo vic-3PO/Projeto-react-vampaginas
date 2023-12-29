@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useAute } from "../AuthPage/autenticar";
+import { useNavigate } from "react-router-dom";
 
 const AuthPageContainer = styled.div`
   display: flex;
@@ -107,26 +108,28 @@ export default function RegisterPage() {
   const passwordConfirmRef = useRef();
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const { signup } = useAute();
 
   async function handleSubmit(e) {
     e.preventDefault();
-  
+
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Senhas não são iguais");
     }
-  
+
     try {
       setError("");
       setLoading(true);
       console.log("Antes do signup");
-  
+
       // Aqui adicionamos a verificação mais detalhada de erro
       await signup(emailRef.current.value, passwordRef.current.value)
         .then((userCredential) => {
           const user = userCredential.user;
           console.log("Usuário criado com sucesso:", user);
+          navigate("/login");
         })
         .catch((error) => {
           console.error("Erro ao criar uma conta:", error);
@@ -134,13 +137,13 @@ export default function RegisterPage() {
           const errorMessage = error.message;
           setError(`Falha ao criar uma conta: ${errorCode} - ${errorMessage}`);
         });
-  
-      console.log("Depois do signup");  
+
+      console.log("Depois do signup");
     } catch (error) {
       console.error("Erro ao criar uma conta:", error);
       setError("Falha ao criar uma conta");
     }
-  
+
     setLoading(false);
   }
 
@@ -166,10 +169,7 @@ export default function RegisterPage() {
           </Button>
           <Register>
             <p>
-              Já tem uma conta?{" "}
-              <a href="/login">
-                Login
-              </a>
+              Já tem uma conta? <a href="/login">Login</a>
             </p>
             {error && <p className="error">{error}</p>}
             {isLoading && <p>Carregando...</p>}
