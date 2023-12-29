@@ -12,6 +12,18 @@ const AppContainer = styled.div`
   position: relative;
 `;
 
+const LogoutButton = styled.button`
+  background-color: var(--color-red);
+  color: white;
+  font-family: sans-serif;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+
 function Perfil() {
   const { logout } = useAute();
   const navigate = useNavigate();
@@ -31,9 +43,7 @@ function Perfil() {
   return (
     <AppContainer>
       <Titulo>Perfil</Titulo>
-      <button onClick={handleLogout}>
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-      </button>
+      <LogoutButton onClick={handleLogout}>Sair da conta</LogoutButton>
       <TrabalhandoNisso />
     </AppContainer>
   );
