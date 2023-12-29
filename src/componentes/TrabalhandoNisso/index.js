@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "../Footer";
 
 const TrabalhandoContainer = styled.div`
-  position: fixed;
-  width: 100vw;
+  position: relative;
   height: 100vh;
   background-color: var(--color-current-line);
   display: flex;
@@ -24,9 +24,12 @@ const SubTitulo = styled.h3`
 
 function TrabalhandoNisso() {
   return (
-    <TrabalhandoContainer>
-      <SubTitulo>Estamos trabalhando para construir esta página! </SubTitulo>
-    </TrabalhandoContainer>
+    <div>
+      <TrabalhandoContainer>
+        <SubTitulo>Estamos trabalhando para construir esta página! </SubTitulo>
+      </TrabalhandoContainer>
+      <Footer />
+    </div>
   );
 }
 

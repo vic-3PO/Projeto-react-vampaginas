@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import perfil from "../../imagens/perfil.svg";
+import { useAute } from "../AuthPage/autenticar";
 
 const icones = [perfil];
 
@@ -34,15 +35,23 @@ const Icones = styled.ul`
 `;
 
 function IconesHeader() {
+  const usuariologado = useAute().current();
+
   return (
     <Icones>
-      {icones.map((icone, index) => (
-        <Icone key={index}>
+      {usuariologado == null ? (
+        <Icone>
           <Link to="/login">
-            <IconeImg src={icone} alt="."></IconeImg>
+            <IconeImg src={perfil} alt="." />
           </Link>
         </Icone>
-      ))}
+      ) : (
+        <Icone>
+          <Link to="/perfil">
+            <IconeImg src={perfil} alt="." />
+          </Link>
+        </Icone>
+      )}
     </Icones>
   );
 }

@@ -1,25 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 import { Titulo } from "../componentes/Titulo";
-import Footer from "../componentes/Footer";
 import TrabalhandoNisso from "../componentes/TrabalhandoNisso";
-
-
+import { useAute } from "../componentes/AuthPage/autenticar";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../servicos/firebase";
 
 const AppContainer = styled.div`
-  width: 100vw;
+  height: 100vh;
   background-color: #383a59;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
 `;
 
 function Perfil() {
+  const { logout } = useAute();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      if (auth.currentUser == null) {
+        navigate("/login");
+      }
+      console.log("Logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <AppContainer>
       <Titulo>Perfil</Titulo>
-      <TrabalhandoNisso></TrabalhandoNisso>
-      <Footer />
+      <button onClick={handleLogout}>
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      </button>
+      <TrabalhandoNisso />
     </AppContainer>
   );
 }

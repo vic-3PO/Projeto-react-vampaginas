@@ -1,7 +1,9 @@
-import React, { useContext, useEffect,useState } from "react";
-import { auth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "../../servicos/firebase";
-
-
+import React, { useContext, useEffect, useState } from "react";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "../../servicos/firebase";
 
 const AuthContext = React.createContext();
 
@@ -18,7 +20,7 @@ export function Autenticar({ children }) {
   }
 
   function login(email, password) {
-    return signInWithEmailAndPassword(auth,email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   function logout() {
@@ -35,6 +37,10 @@ export function Autenticar({ children }) {
 
   function updatePassword(password) {
     return currentUser.updatePassword(password);
+  }
+
+  function current() {
+    return currentUser;
   }
 
   useEffect(() => {
@@ -54,7 +60,12 @@ export function Autenticar({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    current,
   };
 
-  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
 }
